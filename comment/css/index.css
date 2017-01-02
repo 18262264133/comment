@@ -1,0 +1,44 @@
+*{margin:0;padding:0;}
+ul{list-style: none;}
+a{text-decoration:none;cursor: pointer}
+em{font-style: normal}
+.hide{display: none}
+.fix{overflow: hidden}
+#comment{margin-top:200px;border: 1px solid #c4d6ec}
+.container{width:699px;padding: 0}
+header{padding: 0 20px;}
+.text{float: left;margin-top: 10px}
+.page{text-align: right;margin-top: 10px}
+.page li{display: inline-block}
+.posting{border:1px solid #c4d6ec;}
+.posting textarea{width:655px;height:105px;resize: none;border:none;outline: none}
+.nickname{float: left;margin-top: 5px;}
+.published{float: right;}
+#quickPostPanel{margin-bottom: 22px;}
+.login{padding:10px 0;border:1px solid #c4d6ec;border-top:none}
+.nickname{margin-left:10px;}
+.published{margin-right: 10px;}
+#quickPostPanel .xsj{display:block;width:13px;height:8px;background: url("../images/sanjiao_03.jpg") no-repeat;position: absolute;left: 31px;top: -7px}
+#quickPostPanel{position: relative;}
+.hotPost{float: left;margin-top: 8px}
+.convention{float: right;margin-top: 8px}
+.title{background-color: #e5eef8;padding: 0 20px;height: 36px;border-top:1px solid #c4d6ec}
+.hotPost strong{font-size: 18px;font-weight: normal}
+.hotPost span{color: red;font-weight: bold}
+.convention a{cursor: pointer}
+.content{padding: 16px 0 18px 0;margin:0 20px 0 19px;border-bottom: 1px dotted #afafb0}
+.details{padding-left: 50px;position: relative;margin-bottom: 10px}
+.username{float: left;display: block;color:#1e50a2;height:18px;line-height: 18px;vertical-align: middle}
+.userface{float: left;width: 48px;position: absolute;top: 0;left: 0}
+.userface img{width: 40px;height:40px;border-radius: 50%}
+.postTime{float: right;color: #666;display: block}
+.body{font-size: 14px;padding: 12px 0;}
+.operations{color:#1e50a2;float:right;height: 16px;line-height: 16px;}
+.operations li{display: inline-block}
+.support em{color: red}
+.digg em{color: green}
+footer{margin:0 20px;}
+.footerPosting{margin-top: 35px;}
+.footerPosting h4{background: #f1f7fc;text-align: center;font-weight: bold;height: 30px;line-height: 30px;}
+footer p{color:#888;font-size: 12px;line-height: 12px;margin-top:10px;}
+.ac{color:#ccc !important;}

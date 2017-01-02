@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular/angular-messages.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-controller="postCtrl">
+<div id="comment" class="container">
+    <header>
+        <div id="header" class="fix">
+            <div class="text ">
+                <a class="btn btn-primary" ng-click="show()">快速发帖</a>
+            </div>
+
+            <!--分页导航按钮-->
+            <ul class="page">
+                <li><a class="btn btn-default" ng-click="pre()">上一页</a></li>
+                <li><a class="btn btn-default" ng-repeat="p in data.poster | btnFilter:pageSize"
+                       ng-class="p==pageNum?'btn-primary':''"
+                       ng-click="page(p)">{{p}}</a></li>
+                <li><a class="btn btn-default" ng-click="next()">下一页</a></li>
+            </ul>
+
+        </div>
+        <div id="quickPostPanel" ng-show="switch">
+            <form name="posterForm">
+                <span class="xsj"></span>
+                <div class="posting">
+                    <textarea name="userContent" placeholder="抵制低俗,文明上网,登录发帖" ng-model="userContent" required></textarea>
+                    <div ng-messages="posterForm.userContent.$dirty && posterForm.userContent.$error">
+                        <span ng-message="required" class="error">请输入内容</span>
+                    </div>
+                </div>
+                <div class="login fix">
+                    <div class="nickname">
+                        <input name="username" type="text" placeholder="请输入昵称" ng-model="username" required>
+                        <div ng-messages="posterForm.username.$dirty && posterForm.username.$error">
+                            <span ng-message="required" class="error">请输入昵称</span>
+                        </div>
+                    </div>
+                    <div class="published">
+                        <button class="btn btn-success" ng-click="send()" ng-disabled="posterForm.$invalid">发表</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+    <section>
+        <div class="title fix">
+            <div class="hotPost">
+                <strong>热门跟帖</strong>  &nbsp;(跟贴<span>{{hotPostNum}}</span>条 有<span>{{hotPostPer}}</span>人参与)
+            </div>
+            <div class="convention">
+                <a>跟帖用户自律公约</a> | <a>手机也能看跟帖>></a>
+            </div>
+        </div>
+        <!--发帖信息放这里-->
+        <div class="list">
+            <div class="pages">
+                <div class="content" ng-repeat="post in data.poster | pageFilter:pageNum:pageSize">
+                    <div class="details">
+                        <div class="fix">
+                            <span class="username">
+                                <span class="userface">
+                                    <img ng-src="{{post.imgsrc}}">
+                                </span>
+                                {{post.name}}
+                            </span>
+                            <span class="postTime">{{post.date | date:"yyyy-MM-dd HH:mm:ss"}}</span>
+                        </div>
+                        <div class="body">{{post.content}}</div>
+                        <ul class="operations">
+                            <li><a class="support" ng-click="support(post)" ng-class="post.switch?'':'ac'">顶<em>[{{post.support}}]</em></a></li>
+                            <li><a class="digg" ng-click="digg(post)" ng-class="post.switch2?'':'ac'">踩<em>[{{post.digg}}]</em></a></li>
+                            <li><a>回复</a></li>
+                            <li><a>收藏</a></li>
+                            <li class="push"><a>分享</a></li>
+                            <li><a>复制</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footerPages">
+            <ul class="page">
+                <li><a class="btn btn-default" ng-click="pre()">上一页</a></li>
+                <li><a class="btn btn-default" ng-repeat="p in data.poster | btnFilter:pageSize"
+                       ng-class="p==pageNum?'btn-primary':''"
+                       ng-click="page(p)">{{p}}</a></li>
+                <li><a class="btn btn-default" ng-click="next()">下一页</a></li>
+            </ul>
+        </div>
+        <div class="footerPosting">
+            <h4>文明社会，从理性发贴开始。谢绝地域攻击。</h4>
+            <form name="posterForm">
+                <div class="posting">
+                    <textarea name="userContent" placeholder="抵制低俗,文明上网,登录发帖" ng-model="userContent" required></textarea>
+                    <div ng-messages="posterForm.userContent.$dirty && posterForm.userContent.$error">
+                        <span ng-message="required" class="error">请输入内容</span>
+                    </div>
+                </div>
+                <div class="login fix">
+                    <div class="nickname">
+                        <input name="username" type="text" placeholder="请输入昵称" ng-model="username" required>
+                        <div ng-messages="posterForm.username.$dirty && posterForm.username.$error">
+                            <span ng-message="required" class="error">请输入昵称</span>
+                        </div>
+                    </div>
+                    <div class="published">
+                        <button class="btn btn-success" ng-click="send()" ng-disabled="posterForm.$invalid">发表</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p>网友评论仅供网友表达个人看法，并不表明网易同意其观点或证实其描述</p>
+    </footer>
+</div>
+</body>
+</html>
